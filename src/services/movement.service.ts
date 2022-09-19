@@ -12,7 +12,7 @@ class MovementService {
   public async getAll(req: Request, res: Response) {
     try {
       /* Checking if the connection to the database is ready. */
-      if (MongoConn.getConnStatus() == 1) {
+      if (MongoConn.getConnStatus() != 1) {
         throw "Connection to the database is not ready";
       }
       /* A query to the database. */
