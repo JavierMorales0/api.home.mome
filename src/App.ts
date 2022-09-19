@@ -8,7 +8,7 @@ import express from "express";
 // Import the routes
 import MovementController from "./controllers/movement.controller";
 
-// IMPORT DATABASE CONNECTION
+import * as dotenv from "dotenv";
 
 class App {
   public app: express.Application;
@@ -17,6 +17,7 @@ class App {
     this.app = express();
     this.middlewares();
     this.routes();
+    dotenv.config();
   }
 
   private middlewares(): void {

@@ -32,6 +32,14 @@ class MongoConn {
   public getConnStatus() {
     return this.conn.connection.readyState;
   }
+
+  /**
+   * It returns the connection object.
+   * @returns The connection object.
+   */
+  public getConn() {
+    return this.conn;
+  }
 }
 
 /* Exporting the instance of the class. */
