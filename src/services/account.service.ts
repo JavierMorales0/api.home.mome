@@ -6,19 +6,20 @@ import MongoConn from "../database/mongo.conn";
 import ResponseApiHelper from "../helpers/ResponseApiHelper";
 
 // Import model
-import Movement from "../models/movement.model";
+import Account from "../models/account.model";
 
-class MovementService {
-  public async getAll(req: Request, res: Response) {
+class AccountService {
+  public async getSpecific(req: Request, res: Response) {
     // DECLARE CONST CONTENT
-    const CONTENT = "movement.controller - getAll";
+    const CONTENT = "account.controller - getSpecific";
     try {
-      /* Checking if the connection to the database is ready. */
-      if (MongoConn.getConnStatus() != 1) {
-        throw { message: "Connection to the database is not ready" };
-      }
+      // Get params in the route
+      const { id } = req.params;
       /* A query to the database. */
-      const _data = await Movement.find({});
+      const _data = await Account.findById(id);
+      if (!_data) {
+        throw { message: `Account with ID: ${id} does not exists` };
+      }
       /* Returning the response to the client. */
       const response = ResponseApiHelper.setResponse(_data, CONTENT, true, 200);
       return res.status(200).json(response);
@@ -30,4 +31,4 @@ class MovementService {
   }
 }
 
-export default new MovementService();
+export default new AccountService();

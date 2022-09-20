@@ -1,9 +1,8 @@
 /**
- * Notes class with all the routes for the notes
+ * Controller for Movement with all the routes for the notes
  */
 import { Router } from "express";
 import MovementService from "../services/movement.service";
-import { body } from "express-validator";
 
 class MovementController {
   // Setting the router +

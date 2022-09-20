@@ -1,38 +1,45 @@
 import MongoConn from "../database/mongo.conn";
 
-class MovementModel {
+class UserModel {
   private conn: any;
   private Schema: any;
-  public Movement: any;
+  public User: any;
 
   constructor() {
     /* Creating a connection to the database. */
     this.conn = MongoConn.getConn();
     /* Creating a schema for the model. */
     this.Schema = this.conn.Schema({
-      amount: {
-        type: Number,
-        required: true,
-        default: 0.0,
-      },
-      type: {
+      firstName: {
         type: String,
-        enum: ["in", "out", "unknown"],
         required: true,
       },
-      date: {
+      lastName: {
+        type: String,
+        required: true,
+      },
+      email: {
+        type: String,
+        required: true,
+      },
+      avatar: {
+        type: String,
+        default: "",
+      },
+      creationDate: {
         type: Date,
         default: Date.now,
         required: true,
       },
-      description: {
+      status: {
         type: String,
-        required: true,
+        enum: ["active", "suspended", "inactive", "blocked"],
+        default: "active",
       },
     });
     /* Creating a model from the schema. */
-    this.Movement = this.conn.model("Movement", this.Schema);
+    this.User = this.conn.model("User", this.Schema);
   }
 }
 
-export default new MovementModel().Movement;
+export default new UserModel().User;

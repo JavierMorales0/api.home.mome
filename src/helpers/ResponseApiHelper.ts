@@ -6,9 +6,15 @@ class ResponseApiHelper {
   private API_ORIGIN: string = process.env.API_ORIGIN || "mome.ml";
   constructor() {}
 
-  public setResponse(data: any, status: boolean, statusCode: number = -1) {
+  public setResponse(
+    data: any,
+    content: String,
+    status: boolean,
+    statusCode: number = -1
+  ) {
     return {
       origin: this.API_ORIGIN,
+      content,
       date: moment().toISOString(),
       status: status ? "Success" : "Failed",
       statusCode: statusCode,

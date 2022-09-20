@@ -7,6 +7,8 @@ import express from "express";
 
 // Import the routes
 import MovementController from "./controllers/movement.controller";
+import AccountController from "./controllers/account.controller";
+import UserController from "./controllers/user.controller";
 
 import * as dotenv from "dotenv";
 
@@ -27,6 +29,8 @@ class App {
 
   private routes(): void {
     this.app.use("/api/movements", MovementController);
+    this.app.use("/api/accounts", AccountController);
+    this.app.use("/api/users", UserController);
   }
 
   // port can be number or string
