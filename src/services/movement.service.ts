@@ -10,8 +10,8 @@ import Movement from "../models/movement.model";
 
 class MovementService {
   public async getAll(req: Request, res: Response) {
-    // DECLARE CONST CONTENT
-    const CONTENT = "movement.controller - getAll";
+    // DECLARE CONST CONTEXT
+    const CONTEXT = "movement.controller - getAll";
     try {
       /* Checking if the connection to the database is ready. */
       if (MongoConn.getConnStatus() != 1) {
@@ -20,11 +20,11 @@ class MovementService {
       /* A query to the database. */
       const _data = await Movement.find({});
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(_data, CONTENT, true, 200);
+      const response = ResponseApiHelper.setResponse(_data, CONTEXT, true, 200);
       return res.status(200).json(response);
     } catch (err) {
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(err, CONTENT, false, 500);
+      const response = ResponseApiHelper.setResponse(err, CONTEXT, false, 500);
       return res.status(500).json(response);
     }
   }

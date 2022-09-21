@@ -10,8 +10,8 @@ import Account from "../models/account.model";
 
 class AccountService {
   public async getSpecific(req: Request, res: Response) {
-    // DECLARE CONST CONTENT
-    const CONTENT = "account.controller - getSpecific";
+    // DECLARE CONST CONTEXT
+    const CONTEXT = "account.controller - getSpecific";
     try {
       // Get params in the route
       const { id } = req.params;
@@ -21,11 +21,11 @@ class AccountService {
         throw { message: `Account with ID: ${id} does not exists` };
       }
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(_data, CONTENT, true, 200);
+      const response = ResponseApiHelper.setResponse(_data, CONTEXT, true, 200);
       return res.status(200).json(response);
     } catch (err) {
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(err, CONTENT, false, 500);
+      const response = ResponseApiHelper.setResponse(err, CONTEXT, false, 500);
       return res.status(500).json(response);
     }
   }

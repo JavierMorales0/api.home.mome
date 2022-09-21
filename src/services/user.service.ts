@@ -11,23 +11,23 @@ import User from "../models/user.model";
 
 class UserService {
   public async getAll(req: Request, res: Response) {
-    // DECLARE CONST CONTENT
-    const CONTENT = "user.controller - getAll";
+    // DECLARE CONST CONTEXT
+    const CONTEXT = "user.controller - getAll";
     try {
       /* A query to the database. */
       const _data = await User.find({});
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(_data, CONTENT, true, 200);
+      const response = ResponseApiHelper.setResponse(_data, CONTEXT, true, 200);
       return res.status(200).json(response);
     } catch (err) {
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(err, CONTENT, false, 500);
+      const response = ResponseApiHelper.setResponse(err, CONTEXT, false, 500);
       return res.status(500).json(response);
     }
   }
   public async getSpecific(req: Request, res: Response) {
-    // DECLARE CONST CONTENT
-    const CONTENT = "user.controller - getSpecific";
+    // DECLARE CONST CONTEXT
+    const CONTEXT = "user.controller - getSpecific";
     try {
       // Get params in the route
       const { id } = req.params;
@@ -37,18 +37,18 @@ class UserService {
         throw { message: `User with ID: ${id} does not exists` };
       }
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(_data, CONTENT, true, 200);
+      const response = ResponseApiHelper.setResponse(_data, CONTEXT, true, 200);
       return res.status(200).json(response);
     } catch (err) {
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(err, CONTENT, false, 500);
+      const response = ResponseApiHelper.setResponse(err, CONTEXT, false, 500);
       return res.status(500).json(response);
     }
   }
 
   public async create(req: Request, res: Response) {
-    // DECLARE CONST CONTENT
-    const CONTENT = "user.controller - create";
+    // DECLARE CONST CONTEXT
+    const CONTEXT = "user.controller - create";
     try {
       // Get all the params on the body
       const { firstName, lastName, email, avatar } = req.body;
@@ -61,11 +61,11 @@ class UserService {
       });
       await _user.save();
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(_user, CONTENT, true, 200);
+      const response = ResponseApiHelper.setResponse(_user, CONTEXT, true, 200);
       return res.status(200).json(response);
     } catch (err) {
       /* Returning the response to the client. */
-      const response = ResponseApiHelper.setResponse(err, CONTENT, false, 500);
+      const response = ResponseApiHelper.setResponse(err, CONTEXT, false, 500);
       return res.status(500).json(response);
     }
   }
