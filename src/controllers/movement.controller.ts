@@ -2,6 +2,7 @@
  * Controller for Movement with all the routes for the notes
  */
 import { Router } from "express";
+import { auth } from "../middleware/auth.middleware";
 import MovementService from "../services/movement.service";
 
 class MovementController {
@@ -16,7 +17,7 @@ class MovementController {
   // Method to set the routes
   public routes() {
     // GET /api/movements
-    this.router.get("/", MovementService.getAll);
+    this.router.get("/", auth, MovementService.getAll);
     /*
     // GET /api/notes/:id
     this.router.get("/:id", MovementService.getOne);

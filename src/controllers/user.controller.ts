@@ -2,6 +2,7 @@
  * Controller for User with all the routes for the notes
  */
 import { Router } from "express";
+import { auth } from "../middleware/auth.middleware";
 import UserService from "../services/user.service";
 
 class AccountController {
@@ -16,11 +17,11 @@ class AccountController {
   // Method to set the routes
   public routes() {
     // GET /api/users/
-    this.router.get("/", UserService.getAll);
+    this.router.get("/", auth, UserService.getAll);
     // GET /api/users/:id
-    this.router.get("/:id", UserService.getSpecific);
+    this.router.get("/:id", auth, UserService.getSpecific);
     // POST /api/users/
-    this.router.post("/", UserService.create);
+    this.router.post("/", auth, UserService.create);
   }
 }
 

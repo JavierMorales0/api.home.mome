@@ -11,7 +11,7 @@ import Account from "../models/account.model";
 class AccountService {
   public async getSpecific(req: Request, res: Response) {
     // DECLARE CONST CONTEXT
-    const CONTEXT = "account.controller - getSpecific";
+    const CONTEXT = "account.service - getSpecific";
     try {
       // Get params in the route
       const { id } = req.params;

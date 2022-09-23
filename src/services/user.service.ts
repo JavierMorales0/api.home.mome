@@ -12,7 +12,7 @@ import User from "../models/user.model";
 class UserService {
   public async getAll(req: Request, res: Response) {
     // DECLARE CONST CONTEXT
-    const CONTEXT = "user.controller - getAll";
+    const CONTEXT = "user.service - getAll";
     try {
       /* A query to the database. */
       const _data = await User.find({});
@@ -27,7 +27,7 @@ class UserService {
   }
   public async getSpecific(req: Request, res: Response) {
     // DECLARE CONST CONTEXT
-    const CONTEXT = "user.controller - getSpecific";
+    const CONTEXT = "user.service - getSpecific";
     try {
       // Get params in the route
       const { id } = req.params;
@@ -48,7 +48,7 @@ class UserService {
 
   public async create(req: Request, res: Response) {
     // DECLARE CONST CONTEXT
-    const CONTEXT = "user.controller - create";
+    const CONTEXT = "user.service - create";
     try {
       // Get all the params on the body
       const { firstName, lastName, email, avatar } = req.body;

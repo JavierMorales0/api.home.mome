@@ -11,7 +11,7 @@ import Movement from "../models/movement.model";
 class MovementService {
   public async getAll(req: Request, res: Response) {
     // DECLARE CONST CONTEXT
-    const CONTEXT = "movement.controller - getAll";
+    const CONTEXT = "movement.service - getAll";
     try {
       /* Checking if the connection to the database is ready. */
       if (MongoConn.getConnStatus() != 1) {

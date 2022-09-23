@@ -2,6 +2,7 @@
  * Controller for Account with all the routes for the notes
  */
 import { Router } from "express";
+import { auth } from "../middleware/auth.middleware";
 import AcountService from "../services/account.service";
 
 class AccountController {
@@ -16,7 +17,7 @@ class AccountController {
   // Method to set the routes
   public routes() {
     // GET /api/account/:id
-    this.router.get("/:id", AcountService.getSpecific);
+    this.router.get("/:id", auth, AcountService.getSpecific);
   }
 }
 

@@ -9,6 +9,7 @@ import express from "express";
 import MovementController from "./controllers/movement.controller";
 import AccountController from "./controllers/account.controller";
 import UserController from "./controllers/user.controller";
+import AuthController from "./controllers/auth.controller";
 
 import * as dotenv from "dotenv";
 
@@ -31,6 +32,7 @@ class App {
     this.app.use("/api/movements", MovementController);
     this.app.use("/api/accounts", AccountController);
     this.app.use("/api/users", UserController);
+    this.app.use("/api/auth", AuthController);
   }
 
   // port can be number or string
