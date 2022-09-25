@@ -1,23 +1,29 @@
 /**
  * Controller for Movement with all the routes for the notes
  */
-import { Router } from "express";
-import { auth } from "../middleware/auth.middleware";
-import MovementService from "../services/movement.service";
+import { Router } from 'express'
+import { auth } from '../middleware/auth.middleware'
+import MovementService from '../services/movement.service'
 
 class MovementController {
   // Setting the router +
-  public router: Router;
+  public router: Router
 
   // constructor with the router configuration
   constructor() {
-    this.router = Router();
-    this.routes();
+    this.router = Router()
+    this.routes()
   }
   // Method to set the routes
   public routes() {
     // GET /api/movements
-    this.router.get("/", auth, MovementService.getAll);
+    this.router.get('/', auth, MovementService.getAll)
+    // GET /api/movements/:id
+    this.router.get('/:id', auth, MovementService.getSpecific)
+    // POST /api/movements
+    this.router.post('/', auth, MovementService.create)
+    // DELETE /api/movements
+    this.router.delete('/:id', auth, MovementService.delete)
     /*
     // GET /api/notes/:id
     this.router.get("/:id", MovementService.getOne);
@@ -48,4 +54,4 @@ class MovementController {
   }
 }
 
-export default new MovementController().router;
+export default new MovementController().router

@@ -1,7 +1,7 @@
-import moment from "moment";
+import moment from 'moment'
 
 class ResponseApiHelper {
-  private API_ORIGIN: string = process.env.API_ORIGIN || "mome.ml";
+  private API_ORIGIN: string = process.env.API_ORIGIN || 'mome.ml'
   constructor() {}
 
   public setResponse(
@@ -14,11 +14,11 @@ class ResponseApiHelper {
       origin: this.API_ORIGIN,
       context,
       date: moment().toISOString(),
-      status: status ? "Success" : "Failed",
+      status: status ? 'Success' : 'Failed',
       statusCode: statusCode,
       data,
-    };
+    }
   }
 }
 
-export default new ResponseApiHelper();
+export default new ResponseApiHelper()

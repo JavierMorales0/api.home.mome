@@ -1,13 +1,13 @@
-import MongoConn from "../database/mongo.conn";
+import MongoConn from '../database/mongo.conn'
 
 class UserModel {
-  private conn: any;
-  private Schema: any;
-  public User: any;
+  private conn: any
+  private Schema: any
+  public User: any
 
   constructor() {
     /* Creating a connection to the database. */
-    this.conn = MongoConn.getConn();
+    this.conn = MongoConn.getConn()
     /* Creating a schema for the model. */
     this.Schema = this.conn.Schema({
       firstName: {
@@ -24,7 +24,7 @@ class UserModel {
       },
       avatar: {
         type: String,
-        default: "",
+        default: '',
       },
       creationDate: {
         type: Date,
@@ -33,13 +33,13 @@ class UserModel {
       },
       status: {
         type: String,
-        enum: ["active", "suspended", "inactive", "blocked"],
-        default: "active",
+        enum: ['active', 'suspended', 'inactive', 'blocked'],
+        default: 'active',
       },
-    });
+    })
     /* Creating a model from the schema. */
-    this.User = this.conn.model("User", this.Schema);
+    this.User = this.conn.model('User', this.Schema)
   }
 }
 
-export default new UserModel().User;
+export default new UserModel().User
