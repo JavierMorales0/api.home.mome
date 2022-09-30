@@ -10,7 +10,7 @@ import ResponseApiHelper from '../helpers/ResponseApiHelper'
 import Movement from '../models/movement.model'
 
 class MovementService {
-  public async getAll(req: TokenRequest, res: Response) {
+  public async getAll(req: TokenRequest | Request | any, res: Response) {
     // DECLARE CONST CONTEXT
     const CONTEXT = 'movement.service - getAll'
     try {
@@ -26,7 +26,7 @@ class MovementService {
     }
   }
 
-  public async getSpecific(req: TokenRequest, res: Response) {
+  public async getSpecific(req: TokenRequest | Request | any, res: Response) {
     // DECLARE CONST CONTEXT
     const CONTEXT = 'movement.service - getAll'
     try {
@@ -46,7 +46,7 @@ class MovementService {
     }
   }
 
-  public async create(req: TokenRequest, res: Response) {
+  public async create(req: TokenRequest | Request | any, res: Response) {
     // DECLARE CONST CONTEXT
     const CONTEXT = 'movement.service - getAll'
     try {
@@ -75,7 +75,7 @@ class MovementService {
     }
   }
 
-  public async delete(req: TokenRequest, res: Response) {
+  public async delete(req: TokenRequest | Request | any, res: Response) {
     // DECLARE CONST CONTEXT
     const CONTEXT = 'movement.service - getAll'
     try {

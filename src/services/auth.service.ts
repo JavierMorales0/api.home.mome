@@ -13,6 +13,7 @@ import User from '../models/user.model'
 
 class AuthService {
   public async login(req: Request, res: Response) {
+    console.log('Entro uno')
     // DECLARE CONST CONTEXT
     const CONTEXT = 'auth.controller - login'
 
@@ -23,7 +24,7 @@ class AuthService {
     const EXPIRATION_TIME: string = process.env.JWT_EXPIRATION_TIME ?? ''
 
     /* Creating a new instance of the OAuth2Client class. */
-    const client = new OAuth2Client(CLIENT_ID)
+    const client: any = new OAuth2Client(CLIENT_ID)
 
     /* Destructuring the tokenId from the request body. */
     const { tokenId } = req.body
