@@ -13,7 +13,6 @@ import User from '../models/user.model'
 
 class AuthService {
   public async login(req: Request, res: Response) {
-    console.log('Entro uno')
     // DECLARE CONST CONTEXT
     const CONTEXT = 'auth.controller - login'
 
@@ -87,8 +86,7 @@ picture from the ticket.getPayload() method. */
       )
       const response = ResponseApiHelper.setResponse(
         {
-          email: _match.email,
-          token,
+          tokenId: token,
         },
         CONTEXT,
         true,

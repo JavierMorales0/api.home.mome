@@ -94,7 +94,6 @@ class MovementService {
       )
       return res.status(200).json(response)
     } catch (err) {
-      console.log(err)
       /* Returning the response to the client. */
       const response = ResponseApiHelper.setResponse(err, CONTEXT, false, 500)
       return res.status(500).json(response)
